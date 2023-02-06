@@ -22,14 +22,14 @@ export default {
       },
     },
   },
-  setup(props) {
-    console.log(props);
+  setup() {
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .card {
+  position: relative;
   margin: 5px;
   width: 300px;
   height: 400px;
@@ -61,6 +61,7 @@ export default {
     & .content-more-btn {
       position: absolute;
       top: calc(100% - 20px);
+      
       & .btn-inner {
         border-radius: 0.25rem;
         padding: 3px 10px;
