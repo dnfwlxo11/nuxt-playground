@@ -5,15 +5,13 @@
 </template>
 
 <script>
-import HomePage from './pages';
+import HomePage from "./pages";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HomePage
+    HomePage,
   },
-  setup() {
-
-  }
-}  
+  setup() {},
+};
 </script>
