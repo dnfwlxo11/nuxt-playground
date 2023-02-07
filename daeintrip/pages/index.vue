@@ -8,9 +8,12 @@
       <section>
         <Travels />
       </section>
-      <section></section>
-      <section></section>
-      <section></section>
+      <section>
+        <Tours />
+      </section>
+      <section>
+        <Guides />
+      </section>
     </div>
   </div>
 </template>
@@ -19,6 +22,8 @@
 import Nav from "@/components/navbar.vue";
 import Menus from "./menus";
 import Travels from "./travels";
+import Tours from "./tours";
+import Guides from "./guides";
 import Footer from "@/components/footer.vue";
 
 export default {
@@ -27,6 +32,8 @@ export default {
     Nav,
     Menus,
     Travels,
+    Tours,
+    Guides,
     Footer,
   },
   setup() {},

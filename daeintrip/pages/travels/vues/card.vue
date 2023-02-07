@@ -22,8 +22,7 @@ export default {
       },
     },
   },
-  setup() {
-  },
+  setup() {},
 };
 </script>
 
@@ -44,6 +43,8 @@ export default {
   }
 
   & .card-contents {
+    height: 100%;
+    width: 100%;
     padding: 20px;
     position: absolute;
     color: white;
@@ -60,13 +61,15 @@ export default {
 
     & .content-more-btn {
       position: absolute;
-      top: calc(100% - 20px);
-      
+      left: calc(100% - 100px);
+      top: calc(100% - 50px);
+
       & .btn-inner {
         border-radius: 0.25rem;
         padding: 3px 10px;
         color: #6a6c70;
         background: white;
+        font-size: 14px;
       }
     }
   }
