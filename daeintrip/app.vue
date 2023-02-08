@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import HomePage from './pages'
+
 export default {
   name: "App",
   setup() {},

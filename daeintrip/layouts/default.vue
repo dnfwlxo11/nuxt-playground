@@ -1,8 +1,11 @@
 <template>
   <div>
-    <header name="header" class="header"></header>
+    <header class="header">
+      <Navbar />
+      <Menus />
+    </header>
     <main>
-      <slot name="content" class="content" />
+      <slot />
     </main>
     <footer>
       <Footer />
@@ -11,10 +14,15 @@
 </template>
 
 <script>
+import Navbar from '@/components/navbar.vue';
+import Menus from '@/components/menus.vue'
+import Footer from '@/components/footer.vue';
+
 export default {
-  name: "Default-layout",
+  name: "DefaultLayout",
   components: {
     Navbar,
+    Menus,
     Footer,
   },
 };
@@ -23,10 +31,5 @@ export default {
 <style lang="scss" scoped>
 .header {
   border-bottom: 0.5px solid #e0e1e3;
-}
-
-.container {
-  max-width: 1080px;
-  margin: 40px auto;
 }
 </style>

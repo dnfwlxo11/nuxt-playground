@@ -69,10 +69,13 @@ export default {
 
     & .content-more-btn {
       position: absolute;
-      left: calc(100% - 100px);
+      left: calc(100% - 120px);
       top: calc(100% - 50px);
 
       & .btn-inner {
+        text-align: center;
+        height: 30px;
+        width: 100px;
         border-radius: 0.25rem;
         padding: 3px 10px;
         color: #6a6c70;

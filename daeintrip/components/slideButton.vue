@@ -40,6 +40,8 @@ export default {
         currWidth.value = Math.ceil(
           props.parent.scrollLeft + clientWidth.value
         );
+
+        console.log(currWidth.value, clientWidth.value)
       });
     };
 
