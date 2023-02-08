@@ -1,10 +1,10 @@
 <template>
   <div class="tours">
-    <h2 class="tours-title">투어로 편하게 즐기자!</h2>
+    <h2 class="tours-title">투어로 편하게 즐기자! 🚞</h2>
     <div v-if="tours.length" class="tours-inner" ref="tourRef">
       <ChevronButton v-if="tourRef" :parent="tourRef" />
       <div class="tour" v-for="(tour, idx) of tours" :key="idx">
-        <Card :data="tour" />
+        <Card :class="{ last: idx === tours.length - 1 }" :data="tour" />
       </div>
     </div>
   </div>
@@ -13,7 +13,7 @@
 <script>
 import dummy from "@/public/dummy/dummy";
 import ChevronButton from "@/components/slideButton.vue";
-import Card from "./vues/card.vue";
+import Card from "./card.vue";
 
 export default {
   name: "Tours",
@@ -40,18 +40,22 @@ export default {
 <style lang="scss" scoped>
 .tours {
   position: relative;
-  margin: 64px 0;
+  margin: 48px 0;
 
   .tours-title {
     color: #353a3f;
   }
 
   & .tours-inner {
+    display: flex;
     white-space: nowrap;
     scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
-    display: flex;
+
+    & .last {
+      margin-right: 0px;
+    }
   }
 }
 </style>

@@ -1,29 +1,31 @@
 <template>
-  <div class="homepage">
-    <header class="header">
-      <Nav />
-      <Menus />
-    </header>
-    <div class="section-container">
-      <section>
-        <Travels />
-      </section>
-      <section>
-        <Tours />
-      </section>
-      <section>
-        <Guides />
-      </section>
-    </div>
+  <div>
+    <NuxtLayout :name="home">
+      <template #header>
+        <Nav />
+        <Menus />
+      </template>
+      <template #content>
+        <section>
+          <Travels />
+        </section>
+        <section>
+          <Tours />
+        </section>
+        <section>
+          <Guides />
+        </section>
+      </template>
+    </NuxtLayout>
   </div>
 </template>
 
 <script>
 import Nav from "@/components/navbar.vue";
-import Menus from "./menus";
-import Travels from "./travels";
-import Tours from "./tours";
-import Guides from "./guides";
+import Menus from "@/components/menus.vue";
+import Travels from "./vues/travels";
+import Tours from "./vues/tours";
+import Guides from "./vues/guides";
 import Footer from "@/components/footer.vue";
 
 export default {
@@ -40,13 +42,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.header {
-  border-bottom: 0.5px solid #e0e1e3;
-}
-
-.section-container {
-  max-width: 1080px;
-  margin: 40px auto;
-}
-</style>
+<style lang="scss" scoped></style>

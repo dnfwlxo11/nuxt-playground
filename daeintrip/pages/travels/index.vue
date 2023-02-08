@@ -1,56 +1,11 @@
 <template>
-  <div class="travels">
-    <h2 class="travels-title">여행가고 싶죠?</h2>
-    <div v-if="travels.length" class="travels-inner" ref="travelRef">
-      <ChevronButton v-if="travelRef" :parent="travelRef" />
-      <div class="travel" v-for="(travel, idx) of travels" :key="idx">
-        <Card :data="travel" />
-      </div>
-    </div>
-  </div>
+  <div>asd</div>
 </template>
 
 <script>
-import dummy from "@/public/dummy/dummy";
-import ChevronButton from "@/components/slideButton.vue";
-import Card from "./vues/card.vue";
-
 export default {
   name: "Travels",
-  components: {
-    Card,
-    ChevronButton,
-  },
-  setup() {
-    const travelRef = ref(null);
-    const travels = ref([]);
-
-    onMounted(() => {
-      travels.value = dummy.travels;
-    });
-
-    return {
-      travelRef,
-      travels,
-    };
-  },
 };
 </script>
 
-<style lang="scss" scoped>
-.travels {
-  position: relative;
-  margin: 64px 0;
-  .travels-title {
-    color: #353a3f;
-  }
-
-  & .travels-inner {
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-    width: 100%;
-    display: flex;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

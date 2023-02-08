@@ -37,7 +37,7 @@ export default {
   position: relative;
   border: 0.5px solid lightgrey;
   border-radius: 0.25rem;
-  margin: 5px;
+  margin: 0 10px 0 0;
   width: 150px;
   height: 200px;
 

@@ -1,11 +1,18 @@
 <template>
-  <div class="card">
+  <div class="travel-card">
     <img class="card-background" :src="`/static/${data.src}`" />
     <div class="card-contents">
       <div class="content-title">{{ data.name }}</div>
       <div class="content-sub">{{ data.subTitle }}</div>
       <div class="content-more-btn">
-        <button class="btn-inner">자세히보기</button>
+        <button
+          class="btn-inner"
+          @click="
+            router.push({ path: `/travel/detail`, params: { city: data.name } })
+          "
+        >
+          자세히보기
+        </button>
       </div>
     </div>
   </div>
@@ -13,7 +20,7 @@
 
 <script>
 export default {
-  name: "card",
+  name: "TravelCard",
   props: {
     data: {
       type: Object,
@@ -27,9 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
+.travel-card {
   position: relative;
-  margin: 5px;
+  margin: 0 10px 0 0;
   width: 300px;
   height: 400px;
   border-radius: 0.25rem;
@@ -48,6 +55,7 @@ export default {
     padding: 20px;
     position: absolute;
     color: white;
+    white-space: pre-wrap;
 
     & .content-title {
       font-weight: 800;
