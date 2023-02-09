@@ -4,9 +4,7 @@
       <img class="card-background" :src="`/static/${data.src}`" alt="" />
     </div>
     <div class="card-content">
-      <div class="content-tag">
-        {{ data.name }}
-      </div>
+      <div class="content-tag"></div>
       <div class="content-title">
         {{ data.subTitle }}
       </div>

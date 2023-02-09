@@ -5,7 +5,7 @@
     </div>
     <div class="card-content">
       <div class="content-tag">
-        {{ data.name }}
+        {{ data.tag }}
       </div>
       <div class="content-title">
         {{ data.subTitle }}

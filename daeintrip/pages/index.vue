@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <section>
       <Travels />
     </section>
@@ -28,9 +28,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.container {
-  max-width: 1080px;
-  margin: 40px auto;
-}
-</style>
+<style lang="scss" scoped></style>

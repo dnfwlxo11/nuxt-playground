@@ -1,14 +1,14 @@
 <template>
-  <div class="travel-detail">
-    <div class="travel-detail-left">
-      <div class="travel-detail-left-tag">
-        {{ travel.country }} > {{ travel.area }}
+  <div class="guide-detail">
+    <div class="guide-detail-left">
+      <div class="guide-detail-left-tag">
+        {{ guide.country }} > {{ guide.area }}
       </div>
-      <div class="travel-detail-left-title">
-        [{{ travel.country }}] {{ travel.subTitle }}
+      <div class="guide-detail-left-title">
+        {{ guide.subTitle }}
       </div>
-      <div class="travel-detail-left-thumbnail">
-        <img :src="`/static/${travel.src}`" />
+      <div class="guide-detail-left-thumbnail">
+        <img :src="`/static/${guide.src}`" />
       </div>
       <div v-if="comments.length" class="comments">
         <div class="comments-title">후기</div>
@@ -17,10 +17,10 @@
         </div>
       </div>
     </div>
-    <div class="travel-detail-right">
+    <div class="guide-detail-right">
       <div class="offer-box">
         <div class="offer-box-price" style="margin-bottom: 10px">
-          {{ travel.price }}
+          {{ guide.price }}
           <span class="offer-box-sub">부터</span>
         </div>
         <button class="btn" style="margin-bottom: 5px">결제하기</button>
@@ -35,19 +35,19 @@ import dummy from "@/public/dummy/dummy";
 import Comment from "@/components/comment.vue";
 
 export default {
-  name: "TravelDetail",
+  name: "guideDetail",
   components: {
     Comment,
   },
   setup() {
     const route = useRoute();
-    const travel = ref([]);
+    const guide = ref([]);
     const comments = ref([]);
 
     onMounted(() => {
-      console.log(dummy.travels, route.params.id);
-      travel.value = dummy.travels.filter(
-        (travel, idx) => travel.id === Number(route.params.id)
+      console.log(dummy.guides, route.params.id);
+      guide.value = dummy.guides.filter(
+        (guide, idx) => guide.id === Number(route.params.id)
       )[0];
 
       comments.value = dummy.comments;
@@ -55,7 +55,7 @@ export default {
 
     return {
       route,
-      travel,
+      guide,
       comments,
     };
   },
@@ -63,26 +63,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.travel-detail {
+.guide-detail {
   display: flex;
 
-  & .travel-detail-left {
+  & .guide-detail-left {
     width: 70%;
     padding: 0 20px;
     color: #6a6c70;
 
-    & .travel-detail-left-tag {
+    & .guide-detail-left-tag {
       font-size: 12px;
     }
 
-    & .travel-detail-left-title {
+    & .guide-detail-left-title {
       font-size: 24px;
       font-weight: 800;
       border-bottom: 1px solid #e1e3e5;
       margin-bottom: 20px;
     }
 
-    & .travel-detail-left-thumbnail {
+    & .guide-detail-left-thumbnail {
       width: 100%;
       margin-bottom: 100px;
 
@@ -100,7 +100,7 @@ export default {
     }
   }
 
-  & .travel-detail-right {
+  & .guide-detail-right {
     width: 30%;
     padding: 0 20px;
 

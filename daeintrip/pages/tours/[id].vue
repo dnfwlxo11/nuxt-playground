@@ -1,14 +1,14 @@
 <template>
-  <div class="travel-detail">
-    <div class="travel-detail-left">
-      <div class="travel-detail-left-tag">
-        {{ travel.country }} > {{ travel.area }}
+  <div class="tour-detail">
+    <div class="tour-detail-left">
+      <div class="tour-detail-left-tag">
+        {{ tour.country }} > {{ tour.area }}
       </div>
-      <div class="travel-detail-left-title">
-        [{{ travel.country }}] {{ travel.subTitle }}
+      <div class="tour-detail-left-title">
+        {{ tour.subTitle }}
       </div>
-      <div class="travel-detail-left-thumbnail">
-        <img :src="`/static/${travel.src}`" />
+      <div class="tour-detail-left-thumbnail">
+        <img :src="`/static/${tour.src}`" />
       </div>
       <div v-if="comments.length" class="comments">
         <div class="comments-title">후기</div>
@@ -17,10 +17,10 @@
         </div>
       </div>
     </div>
-    <div class="travel-detail-right">
+    <div class="tour-detail-right">
       <div class="offer-box">
         <div class="offer-box-price" style="margin-bottom: 10px">
-          {{ travel.price }}
+          {{ tour.price }}
           <span class="offer-box-sub">부터</span>
         </div>
         <button class="btn" style="margin-bottom: 5px">결제하기</button>
@@ -35,19 +35,19 @@ import dummy from "@/public/dummy/dummy";
 import Comment from "@/components/comment.vue";
 
 export default {
-  name: "TravelDetail",
+  name: "tourDetail",
   components: {
     Comment,
   },
   setup() {
     const route = useRoute();
-    const travel = ref([]);
+    const tour = ref([]);
     const comments = ref([]);
 
     onMounted(() => {
-      console.log(dummy.travels, route.params.id);
-      travel.value = dummy.travels.filter(
-        (travel, idx) => travel.id === Number(route.params.id)
+      console.log(dummy.tours, route.params.id);
+      tour.value = dummy.tours.filter(
+        (tour, idx) => tour.id === Number(route.params.id)
       )[0];
 
       comments.value = dummy.comments;
@@ -55,7 +55,7 @@ export default {
 
     return {
       route,
-      travel,
+      tour,
       comments,
     };
   },
@@ -63,26 +63,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.travel-detail {
+.tour-detail {
   display: flex;
 
-  & .travel-detail-left {
+  & .tour-detail-left {
     width: 70%;
     padding: 0 20px;
     color: #6a6c70;
 
-    & .travel-detail-left-tag {
+    & .tour-detail-left-tag {
       font-size: 12px;
     }
 
-    & .travel-detail-left-title {
+    & .tour-detail-left-title {
       font-size: 24px;
       font-weight: 800;
       border-bottom: 1px solid #e1e3e5;
       margin-bottom: 20px;
     }
 
-    & .travel-detail-left-thumbnail {
+    & .tour-detail-left-thumbnail {
       width: 100%;
       margin-bottom: 100px;
 
@@ -100,7 +100,7 @@ export default {
     }
   }
 
-  & .travel-detail-right {
+  & .tour-detail-right {
     width: 30%;
     padding: 0 20px;
 

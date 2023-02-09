@@ -2,13 +2,15 @@
   <div class="travel-card">
     <img class="card-background" :src="`/static/${data.src}`" />
     <div class="card-contents">
-      <div class="content-title">{{ data.name }}</div>
+      <div class="content-title">{{ data.country }}</div>
       <div class="content-sub">{{ data.subTitle }}</div>
       <div class="content-more-btn">
         <button
           class="btn-inner"
           @click="
-            router.push({ path: `/travel/detail`, params: { city: data.name } })
+            router.push({
+              path: `/travels/${data.id}`,
+            })
           "
         >
           자세히보기
@@ -29,7 +31,13 @@ export default {
       },
     },
   },
-  setup() {},
+  setup() {
+    const router = useRouter();
+
+    return {
+      router,
+    };
+  },
 };
 </script>
 

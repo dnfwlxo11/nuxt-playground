@@ -4,7 +4,11 @@
     <div v-if="guides.length" class="guides-inner" ref="guideRef">
       <ChevronButton v-if="guideRef" :parent="guideRef" />
       <div class="guide" v-for="(guide, idx) of guides" :key="idx">
-        <Card :class="{ last: idx === guides.length - 1 }" :data="guide" />
+        <Card
+          @click="router.push(`/guides/${guide.id}`)"
+          :class="{ last: idx === guides.length - 1 }"
+          :data="guide"
+        />
       </div>
     </div>
   </div>
@@ -22,6 +26,7 @@ export default {
     ChevronButton,
   },
   setup() {
+    const router = useRouter();
     const guideRef = ref(null);
     const guides = ref([]);
 
@@ -30,6 +35,7 @@ export default {
     });
 
     return {
+      router,
       guideRef,
       guides,
     };
@@ -52,6 +58,12 @@ export default {
     scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
+
+    & .guide {
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     & .last {
       margin-right: 0px;

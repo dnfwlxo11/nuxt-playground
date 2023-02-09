@@ -1,10 +1,10 @@
 <template>
   <div class="navbar">
-    <div class="site-title">
+    <a class="site-title" @click="router.push('/')">
       <span>my</span>
       <span class="title-empha">daein</span>
       <span>trip</span>
-    </div>
+    </a>
     <Search />
     <div class="nav-items">
       <div>
@@ -25,15 +25,20 @@ export default {
   components: {
     Search,
   },
-  setup() {},
+  setup() {
+    const router = useRouter();
+
+    return {
+      router,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .navbar {
-  height: 80px;
-  max-width: 1060px;
-  margin: 0 auto;
+  max-width: 1080px;
+  margin: 20px auto;
   width: 100%;
   display: flex;
   align-items: center;
