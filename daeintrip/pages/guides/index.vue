@@ -2,7 +2,7 @@
   <div class="guides">
     <div v-if="guides" class="guides-inner">
       <div v-for="(guide, idx) of guides" :key="idx">
-        <Card @click="router.push(`/tours/${tour.id}`)" :data="guide" />
+        <Card @click="router.push(`/guides/${guide.id}`)" :data="guide" />
       </div>
     </div>
   </div>

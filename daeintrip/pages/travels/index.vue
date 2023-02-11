@@ -23,7 +23,6 @@ export default {
 
     onMounted(() => {
       travels.value = dummy.travels;
-      console.log(travels.value, "travels");
     });
 
     return {

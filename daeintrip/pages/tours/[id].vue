@@ -45,7 +45,6 @@ export default {
     const comments = ref([]);
 
     onMounted(() => {
-      console.log(dummy.tours, route.params.id);
       tour.value = dummy.tours.filter(
         (tour, idx) => tour.id === Number(route.params.id)
       )[0];

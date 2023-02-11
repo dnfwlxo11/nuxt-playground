@@ -23,10 +23,6 @@ export default {
     },
   },
   setup(props) {
-    onMounted(() => {
-      console.log(props.data);
-    });
-
     return {};
   },
 };

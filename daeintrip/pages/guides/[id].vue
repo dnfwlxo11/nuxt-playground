@@ -45,7 +45,6 @@ export default {
     const comments = ref([]);
 
     onMounted(() => {
-      console.log(dummy.guides, route.params.id);
       guide.value = dummy.guides.filter(
         (guide, idx) => guide.id === Number(route.params.id)
       )[0];

@@ -30,14 +30,19 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  display: fixed;
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  top: 0;
   border-bottom: 0.5px solid #e0e1e3;
+  background: white;
 }
 
 .container {
   min-height: auto;
   max-width: 1080px;
-  margin: 40px auto;
+  padding-top: 120px;
+  margin: 20px auto;
 }
 
 .footer {

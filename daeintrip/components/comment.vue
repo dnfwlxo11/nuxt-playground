@@ -2,37 +2,28 @@
   <div class="comment">
     <div class="comment-left">
       <div class="comment-left-title">{{ data.star.toFixed(1) }}</div>
-      <svg viewBox="0 0 100 100">
-        <polygon
-          points="50,0 63.5,38 100,38 68.5,57.5 75,95 50,76 25,95 31.5,57.5 0,38 36.5,38"
-          fill="#50abf2"
-          stroke="#e1e3e5"
-          stroke-width="2"
-        />
-      </svg>
-
-      <!-- Half star -->
-      <svg viewBox="0 0 100 100">
-        <polygon
-          points="50,0 36.5,38 0,38 31.5,57.5 25,95 50,76 75,95 68.5,57.5 100,38 63.5,38 50,0"
-          fill="#e1e3e5"
-        />
-        <polygon
-          points="50,0 36.5,38 0,38 31.5,57.5 25,95 50,76"
-          fill="#50abf2"
-        />
-      </svg>
-
-      <!-- Empty star -->
-      <svg viewBox="0 0 100 100">
-        <polygon
-          points="50,0 63.5,38 100,38 68.5,57.5 75,95 50,76 25,95 31.5,57.5 0,38 36.5,38"
-          fill="none"
-          stroke="#e1e3e5"
-          stroke-width="2"
-        />
-      </svg>
-      <div class="comment-left-star">{{ star }}</div>
+      <div class="comment-left-star">
+        <svg
+          v-for="(star, idx) of new Array(Number(data.star))"
+          :key="idx"
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+        >
+          <FullStar />
+        </svg>
+        <svg
+          v-for="(star, idx) of new Array(5 - Number(data.star))"
+          :key="idx"
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+        >
+          <EmptyStar />
+        </svg>
+      </div>
     </div>
     <div class="comment-right">
       <div class="comment-right-name">{{ data.name }}</div>
@@ -43,6 +34,9 @@
 </template>
 
 <script>
+import FullStar from "@/components/stars/fullStar.vue";
+import EmptyStar from "@/components/stars/emptyStar.vue";
+
 export default {
   name: "Comment",
   props: {
@@ -52,6 +46,10 @@ export default {
         return {};
       },
     },
+  },
+  components: {
+    FullStar,
+    EmptyStar,
   },
   setup(props) {
     const star = ref("");

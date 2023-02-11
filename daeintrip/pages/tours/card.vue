@@ -4,7 +4,7 @@
       <img :src="`/static/${data.src}`" alt="" />
     </div>
     <div class="tour-content">
-      <div class="content-title">{{ data.name }}</div>
+      <div class="content-title">{{ data.area }}</div>
       <div class="content-main">{{ data.subTitle }}</div>
       <div class="content-footer">{{ data.price }} / 1인</div>
     </div>
