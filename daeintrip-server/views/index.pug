@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+
+  script(type='text/javascript').
+    function moveAuth() {
+      console.log('moveAuth')
+      window.location.href = '/auth';
+    };
+
+  p Welcome to #{title}
+
+  button(type='button', onclick='moveAuth()' ) PressMe
