@@ -1,4 +1,4 @@
-const { googleLogin, googleAuth, googleAuthRedirect } = require("./auth");
+const { googleLogin, googleAuth, googleAuthRedirect } = require("./passport/googleStrategy");
 
 module.exports = {
   google: googleLogin(),

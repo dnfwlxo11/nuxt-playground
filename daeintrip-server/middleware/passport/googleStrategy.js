@@ -2,17 +2,17 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 function googleAuth() {
+  console.log('access google oauth2.0 auth');
+
   return passport.authenticate(
     "google",
-    { scope: ["profile", "email"] },
-    (result) => {
-      console.log(result);
-    }
+    { scope: ["profile", "email"] }
   );
 }
 
 function googleAuthRedirect() {
-  return passport.authenticate("google", { failureRedirect: "/hello" });
+  console.log('access google oauth2.0 redirect');
+  return passport.authenticate("google", { successRedirect: '/hello', failureRedirect: "/error", failureMessage: true });
 }
 
 function googleLogin() {
@@ -26,11 +26,11 @@ function googleLogin() {
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          console.log("accessToken", "refreshToken", "profile", "done");
-          console.log(accessToken, refreshToken, profile, done);
+          // console.log("accessToken", "refreshToken", "profile", "done");
+          // console.log(accessToken, refreshToken, profile, done);
 
           console.log("login successed");
-          done(null, "/hello");
+          done(null, profile);
         } catch (err) {
           console.log("error occurred");
           console.error(err);
