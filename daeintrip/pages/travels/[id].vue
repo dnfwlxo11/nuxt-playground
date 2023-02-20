@@ -90,6 +90,7 @@ export default {
         object-fit: contain;
       }
     }
+
     & .comments {
       & .comments-title {
         font-size: 20px;
