@@ -26,8 +26,8 @@ function googleLogin() {
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          // console.log("accessToken", "refreshToken", "profile", "done");
-          // console.log(accessToken, refreshToken, profile, done);
+          console.log("accessToken", accessToken);
+          console.log("refreshToken", refreshToken);
 
           console.log("login successed");
           done(null, profile);

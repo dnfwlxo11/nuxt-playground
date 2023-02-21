@@ -4,11 +4,17 @@ block content
   h1= title
 
   script(type='text/javascript').
-    function moveAuth() {
-      console.log('moveAuth')
-      window.location.href = '/auth';
+    function login() {
+      console.log('login')
+      window.location.href = '/login';
+    };
+
+    function logout() {
+      console.log('logout')
+      window.location.href = '/logout';
     };
 
   p Welcome to #{title}
 
-  button(type='button', onclick='moveAuth()' ) PressMe
+  button(type='button', onclick='login()' ) login
+  button(type='button', onclick='logout()' ) logout

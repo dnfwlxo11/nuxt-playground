@@ -29,8 +29,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(expressSession({
   secret: process.env.SECRET_KEY,
+  cookie: { maxAge: 60 * 60 * 1000 },
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
